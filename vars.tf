@@ -16,7 +16,7 @@ variable "vm_rootpasswd" {
 variable "vsphere_vcenter" {
   description = "vCenter server FQDN or IP"
   type        = string
-  default     = "uk-vcenter.pt.playtech.corp"
+  default     = "vcenter.yourdomain.com"
 }
 
 variable "vsphere_unverified_ssl" {
