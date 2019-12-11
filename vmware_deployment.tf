@@ -112,14 +112,11 @@ resource "vsphere_virtual_machine" "vm" {
 ###add stuff to run after vm is UP
   provisioner "remote-exec" {
     inline = [
-      "echo '10.44.32.177 puppet' >> /etc/hosts ",
       "yum update -y",
       "echo ${var.vm_name} >> /etc/hostname",
       "echo ${var.vm_name} >> /etc/hosts",
-      "echo ${var.vm_name}.pt.playtech.corp >> /etc/hosts",
-      "puppet agent --enable",
-      "puppet agent -t",
-      "echo 'domains pt.playtech.corp lohs.geneity' >> /etc/resolv.conf" ,
+      "echo ${var.vm_name}.yourdomain.com >> /etc/hosts",
+      "echo 'domains yourdomains.com' >> /etc/resolv.conf" ,
     ]
     connection {
       host     = self.default_ip_address
